@@ -10,6 +10,8 @@
     <h1><%= list.title %></h1>
     <h3><%= list.description %></h3>
 
+    <a href="/users/<%= user._id %>/lists/<%= list._id %>/edit">Edit List Details</a>
+
     <form
       action="/users/<%= user._id %>/lists/<%= list._id %>?_method=DELETE"
       method="POST"
