@@ -9,6 +9,15 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Lists</h1>
+    <ul>
+      <% if (lists.length > 0) { %>
+        <% lists.forEach((list) => { %>
+        <a href="/users/<%= user._id %>/lists/<%= lists._id %>">
+      <li><%= list.name %></li>
+      <% }) %> <% } else { %>
+      <p>No lists found.</p>
+      <% } %>
+    </ul>
     <a href="/users/<%=user._id%>/lists/new">Add a List</a>
   </body>
 </html>

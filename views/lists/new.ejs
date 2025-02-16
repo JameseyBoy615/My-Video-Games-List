@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a new List</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New List</h1>
+    <form action="/users/<%= user._id %>/lists" method="post">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" required />
+
+      <label for="description">Description:</label>
+      <input type="text" name="description" />
+
+      <button type="submit">Add Application</button>
+    </form>
+  </body>
+</html>

@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  applications: [listsSchema],
+  lists: [listsSchema],
 });
 
 const User = mongoose.model("User", userSchema);
