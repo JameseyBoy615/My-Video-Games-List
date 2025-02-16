@@ -15,7 +15,7 @@ const gamesSchema = mongoose.Schema({
 });
 
 const listsSchema = mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },

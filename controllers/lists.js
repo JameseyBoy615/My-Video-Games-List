@@ -29,6 +29,21 @@ router.get("/new", async (req, res) => {
 
 // Delete
 
+router.delete("/:listId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+
+    currentUser.lists.id(req.params.listId).deleteOne();
+
+    await currentUser.save();
+
+    res.redirect(`/users/${currentUser._id}/lists`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 // Update
 
 // Create
@@ -38,7 +53,7 @@ router.post("/", async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
 
     const newList = {
-      name: req.body.name,
+      title: req.body.title,
       description: req.body.description,
       games: [],
     };
@@ -56,5 +71,20 @@ router.post("/", async (req, res) => {
 // Edit
 
 // Show
+
+router.get("/:listId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+
+    const list = currentUser.lists.id(req.params.listId);
+
+    res.render("lists/show.ejs", {
+      list: list,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
 module.exports = router;
