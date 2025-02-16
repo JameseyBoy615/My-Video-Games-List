@@ -13,6 +13,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 // Middleware
 
 const authController = require("./controllers/auth.js");
+const listsController = require("./controllers/lists.js");
 
 const port = process.env.PORT ? process.env.PORT : "3003";
 
@@ -48,6 +49,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authController);
 app.use(isSignedIn); // use new isSignedIn middleware here
+app.use("/users/:userId/lists", listsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
