@@ -27,9 +27,6 @@ router.get("/:listId/addGame", async (req, res) => {
 
     const list = currentUser.lists.id(req.params.listId);
 
-    console.log(currentUser);
-    // console.log(list);
-
     res.render("games/new.ejs", {
       list: list,
     });
@@ -96,6 +93,25 @@ router.put("/:listId", async (req, res) => {
   }
 });
 
+router.put("/:listId/:gameId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+
+    const list = currentUser.lists.id(req.params.listId);
+
+    const game = list.games.id(req.params.gameId);
+
+    game.set(req.body);
+
+    await currentUser.save();
+
+    res.redirect(`/users/${currentUser._id}/lists/${req.params.listId}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 // Create
 
 router.post("/", async (req, res) => {
@@ -151,6 +167,24 @@ router.get("/:listId/edit", async (req, res) => {
 
     res.render("lists/edit.ejs", {
       list: list,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
+router.get("/:listId/:gameId/edit", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+
+    const list = currentUser.lists.id(req.params.listId);
+
+    const game = list.games.id(req.params.gameId);
+
+    res.render("games/edit.ejs", {
+      list: list,
+      game: game,
     });
   } catch (error) {
     console.log(error);

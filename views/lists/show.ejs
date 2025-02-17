@@ -18,6 +18,8 @@
             <%= game.rating %> / 10
             <br>
             <%= game.review %>
+            <br>
+            <a href="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/edit">Edit Game</a>
         </li>
       </a>
       <% }) %> <% } else { %>
