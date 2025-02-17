@@ -8,7 +8,23 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1><%= list.title %></h1>
-    <h3><%= list.description %></h3>
+    <h2><%= list.description %></h2>
+    <h3><a href="/users/<%= user._id %>/lists/<%= list._id %>/addGame">Add a Game</a></h3>
+
+    <ul>
+      <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
+        <li><%= game.title %>
+            <br>
+            <%= game.rating %> / 10
+            <br>
+            <%= game.review %>
+        </li>
+      </a>
+      <% }) %> <% } else { %>
+      <p>No games were added yet</p>
+      <% } %>
+    </ul>
+
 
     <a href="/users/<%= user._id %>/lists/<%= list._id %>/edit">Edit List Details</a>
 

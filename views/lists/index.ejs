@@ -9,6 +9,7 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Lists</h1>
+  
     <ul>
       <% if (lists.length > 0) { %> <% lists.forEach((list) => { %>
       <a href="/users/<%= user._id %>/lists/<%= list._id %>">
