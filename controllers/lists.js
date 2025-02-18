@@ -74,6 +74,23 @@ router.delete("/:listId", async (req, res) => {
   }
 });
 
+router.delete("/:listId/:gameId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+
+    const list = currentUser.lists.id(req.params.listId);
+
+    list.games.id(req.params.gameId).deleteOne();
+
+    await currentUser.save();
+
+    res.redirect(`/users/${currentUser._id}/lists/${req.params.listId}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect(``);
+  }
+});
+
 // Update
 
 router.put("/:listId", async (req, res) => {

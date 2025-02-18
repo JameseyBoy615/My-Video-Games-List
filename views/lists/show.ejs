@@ -10,7 +10,6 @@
     <h1><%= list.title %></h1>
     <h2><%= list.description %></h2>
     <h3><a href="/users/<%= user._id %>/lists/<%= list._id %>/addGame">Add a Game</a></h3>
-
     <ul>
       <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
         <li><%= game.title %>
@@ -20,6 +19,9 @@
             <%= game.review %>
             <br>
             <a href="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/edit">Edit Game</a>
+            <form action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>?_method=DELETE" method="post">
+              <button type="submit">Remove game from list</button>
+            </form>
         </li>
       </a>
       <% }) %> <% } else { %>
