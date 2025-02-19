@@ -14,9 +14,9 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 
 const authController = require("./controllers/auth.js");
 const listsController = require("./controllers/lists.js");
-const gamesController = require("./controllers/games.js");
 
 const port = process.env.PORT ? process.env.PORT : "3003";
+const path = require("path");
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -26,6 +26,7 @@ mongoose.connection.on("connected", () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -49,8 +50,7 @@ app.get("/", (req, res) => {
 // Ports
 
 app.use("/auth", authController);
-app.use(isSignedIn); // use new isSignedIn middleware here
-// app.use("/users/:userId/lists", gamesController);
+app.use(isSignedIn);
 app.use("/users/:userId/lists", listsController);
 
 app.listen(port, () => {
