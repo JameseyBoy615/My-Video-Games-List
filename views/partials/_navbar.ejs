@@ -1,9 +1,43 @@
-<nav>
-  <a href="/">Home</a>
-  <% if(user) { %>
-  <a href="/auth/sign-out">Sign Out</a>
-  <% } else { %>
-  <a href="/auth/sign-in">Sign In</a>
-  <a href="/auth/sign-up">Sign Up</a>
-  <% } %>
+<link rel="stylesheet" href="/stylesheets/scss/style.css" />
+
+<nav
+  class="navbar sticky-top bg-dark border-bottom border-body bg-black"
+  data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <% if(user) { %>
+
+    <h1><a class="navbar-brand" href="/">MyVideoGameList</a></h1>
+
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="/users/<%=user._id%>/lists"
+          >Your List</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/sign-out">Sign Out</a>
+      </li>
+    </ul>
+
+    <% } else { %>
+
+    <h1><a class="navbar-brand" href="/">MyVideoGameList</a></h1>
+
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/auth/sign-in"
+          >Sign In</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/sign-up">Sign up</a>
+      </li>
+    </ul>
+
+    <% } %>
+  </div>
 </nav>

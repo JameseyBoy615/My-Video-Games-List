@@ -3,22 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Your Lists</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Your Lists</h1>
-  
-    <ul>
-      <% if (lists.length > 0) { %> <% lists.forEach((list) => { %>
-      <a href="/users/<%= user._id %>/lists/<%= list._id %>">
-        <li><%= list.title %></li>
-      </a>
-      <% }) %> <% } else { %>
-      <p>No list's yet</p>
-      <% } %>
-    </ul>
-    <a href="/users/<%=user._id%>/lists/new">Add a List</a>
+    <h1 class="text-white text-center mt-5">Your Lists</h1>
+    <h6 class="text-center">
+      <a
+        href="/users/<%=user._id%>/lists/new"
+        class="text-white text-decoration-none"
+        >Add a List</a
+      >
+    </h6>
+    <div class="d-flex justify-content-center mt-5">
+      <ul class="list-unstyled">
+        <% if (lists.length > 0) { %> <% lists.forEach((list) => { %>
+        <a
+          href="/users/<%= user._id %>/lists/<%= list._id %>"
+          class="text-decoration-none"
+        >
+          <li class="pb-2"><%= list.title %></li>
+        </a>
+        <% }) %> <% } else { %>
+        <p>No list's yet</p>
+        <% } %>
+      </ul>
+    </div>
   </body>
 </html>

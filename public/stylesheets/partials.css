@@ -1,0 +1,29 @@
+/* .navbar {
+  background-color: #171717;
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw;
+  padding: 5px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+#nav-header {
+  color: white;
+  size: 1em !important;
+  margin: 0;
+}
+
+.authlink {
+  margin: 0 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.authlink:hover {
+  color: blue;
+} */

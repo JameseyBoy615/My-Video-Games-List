@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title><%= list.title %></title>
   </head>
   <body>
@@ -20,7 +21,7 @@
             <br>
             <a href="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/edit">Edit Game</a>
             <form action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>?_method=DELETE" method="post">
-              <button type="submit">Remove game from list</button>
+              <button type="submit" class="btn btn-outline-danger btn-sm">Remove game from list</button>
             </form>
         </li>
       </a>
@@ -30,12 +31,14 @@
     </ul>
 
 
-    <a href="/users/<%= user._id %>/lists/<%= list._id %>/edit">Edit List Details</a>
+    <a href="/users/<%= user._id %>/lists/<%= list._id %>/edit">
+      <button class="btn btn-outline-warning btn-sm">Edit List Details</button>
+    </a>
 
     <form
       action="/users/<%= user._id %>/lists/<%= list._id %>?_method=DELETE"
       method="POST"
     >
-      <button type="submit">Delete list</button>
+      <button type="submit" class="btn btn-primary">Delete list</button>
   </body>
 </html>

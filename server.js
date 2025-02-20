@@ -40,11 +40,7 @@ app.use(passUserToView);
 // Routes
 
 app.get("/", (req, res) => {
-  if (req.session.user) {
-    res.redirect(`/users/${req.session.user._id}/lists`);
-  } else {
-    res.render("index.ejs");
-  }
+  res.render("index.ejs");
 });
 
 // Ports
