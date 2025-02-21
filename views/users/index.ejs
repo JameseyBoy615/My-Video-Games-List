@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/scss/style.css" />
+    <title>Our Community</title>
+  </head>
+  <body class="text-white">
+    <%- include('../partials/_navbar.ejs') %>
+    <h3 class="text-center mt-5">Our Community</h3>
+    <ul class="list-unstyled">
+      <% users.forEach((user) => { %>
+      <li class="text-center mt-3">
+        <a class="text-white text-decoration-none" href="/users/<%= user._id %>"
+          ><%= user.username %></a
+        >
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

@@ -4,21 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
-    <title>Your Lists</title>
+    <title><%= user.username %>'s Lists</title>
   </head>
-  <body>
+  <body class="text-white">
     <%- include('../partials/_navbar.ejs') %>
-    <h1 class="text-white text-center mt-5">Your Lists</h1>
-    <h6 class="text-center">
-      <a href="/users/<%=user._id%>/lists/new"
-        ><button class="btn btn-outline-primary">Add a List</button></a
-      >
-    </h6>
+    <h3 class="text-center mt-5"><%= user.username %>'s Lists</h3>
     <div class="d-flex justify-content-center mt-5">
       <ul class="list-unstyled">
-        <% if (lists.length > 0) { %> <% lists.forEach((list) => { %>
+        <% if (user.lists.length > 0) { %> <% user.lists.forEach((list) => { %>
         <a
-          href="/users/<%= user._id %>/lists/<%= list._id %>"
+          href="/users/<%= user.id %>/<%= list._id %>"
           class="text-decoration-none"
         >
           <li class="pb-2"><%= list.title %></li>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/scss/style.css" />
+    <title><%= user.username %>'s <%= list.title %></title>
+  </head>
+  <body class="text-white">
+    <%- include('../../partials/_navbar.ejs') %>
+    <h3 class="text-center mt-5"><%= user.username %>'s <%= list.title %></h3>
+    <p class="text-center"><%= list.description %></p>
+
+    <a
+      class="text-decoration-none text-center d-flex justify-content-center"
+      href="/users/<%= user._id %>"
+      ><button class="btn btn-outline-primary">
+        Back to <%= user.username %>'s Lists
+      </button></a
+    >
+
+    <ul class="list-unstyled d-flex justify-content-evenly flex-wrap">
+      <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
+      <li class="">
+        <div class="card text-white border-white m-5" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p class="card-text"><%= game.rating %> / 10</p>
+            <p class="card-text"><%= game.review %></p>
+          </div>
+        </div>
+      </li>
+      <% }) %> <% } else { %>
+      <p>No games were added yet</p>
+      <% } %>
+    </ul>
+  </body>
+</html>
