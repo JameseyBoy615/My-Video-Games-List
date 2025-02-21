@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Sign In</title>
   </head>
-  <body class="bg-white">
+  <body class="text-white">
     <%- include('../partials/_navbar.ejs') %>
     <div class="container mt-5 pt-5">
       <div class="row">
         <div class="col-12 col-sm-8 col-md-6 m-auto">
           <div class="card border-0 shadow">
-            <div class="card-body bg-white">
+            <div class="card-body">
               <svg
-                class="d-block mx-auto my-3"
+                class="d-block mx-auto my-3 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
                 height="50"
@@ -28,7 +28,7 @@
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
                 />
               </svg>
-              <h1 class="text-center">Please Sign in</h1>
+              <h1 class="text-center text-white">Please Sign in</h1>
               <form action="/auth/sign-in" method="POST">
                 <input
                   type="text"

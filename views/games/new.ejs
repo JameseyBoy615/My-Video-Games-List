@@ -6,32 +6,53 @@
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Add a Game to <%= list.title %></title>
   </head>
-  <body>
+  <body class="text-center">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a Game to <%= list.title %></h1>
-    <form action="/users/<%= user._id %>/lists/<%= list._id %>" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="title" required />
-
-      <label for="rating">Rating:</label>
-      <select name="rating" id="rating">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-
-      <label for="review">Review:</label>
-      <input type="text" name="review" id="review" maxlength="250" />
-
-      <button type="submit">Add Game</button>
+    <h3 class="text-white text-center pt-5">Add a Game to <%= list.title %></h3>
+    <form
+      action="/users/<%= user._id %>/lists/<%= list._id %>"
+      method="post"
+      class="d-flex flex-column align-items-center"
+    >
+      <div class="row pt-3">
+        <div class="col-auto">
+          <label for="title" class="col-sm col-form-label">Title</label>
+          <input type="text" name="title" required class="form-control" />
+        </div>
+        <div class="col-auto">
+          <label for="rating" class="col-sm col-form-label">Rating</label>
+          <select name="rating" id="rating" class="form-select text-white">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="pt-3 col-md-5">
+        <label for="review" class="col-sm col-form-label">Add a Review</label>
+        <textarea
+          type="text"
+          name="review"
+          id="review"
+          maxlength="250"
+          class="form-control text-white"
+          rows="6"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-primary mt-3">
+        Add Game
+      </button>
     </form>
+    <a href="/users/<%= user._id %>/lists/<%= list._id %>">
+      <button class="btn btn-outline-danger mt-3">Cancel</button>
+    </a>
   </body>
 </html>

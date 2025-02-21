@@ -6,17 +6,38 @@
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Add a new List</title>
   </head>
-  <body>
+  <body class="text-white text-center">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New List</h1>
-    <form action="/users/<%= user._id %>/lists" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" required />
-
-      <label for="description">Description:</label>
-      <input type="text" name="description" />
-
-      <button type="submit">Add List</button>
+    <h3 class="text-center mt-5">Add a New List</h3>
+    <form
+      action="/users/<%= user._id %>/lists"
+      method="post"
+      class="d-flex flex-column align-items-center"
+    >
+      <div class="col-md-5">
+        <label for="title" class="col-sm col-form-label">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="pt-3 col-md-5">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          name="description"
+          class="form-control text-white"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-primary my-3">
+        Add List
+      </button>
     </form>
+    <a href="/users/<%= user._id %>/lists">
+      <button class="btn btn-outline-danger">Cancel</button>
+    </a>
   </body>
 </html>

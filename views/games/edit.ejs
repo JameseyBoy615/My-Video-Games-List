@@ -6,38 +6,51 @@
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Editing <%= game.title %></title>
   </head>
-  <body>
+  <body class="text-center">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Editing <%= game.title %></h1>
-    <form action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/?_method=PUT" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="title" value="<%= game.title %>" />
-
-      <label for="rating">Rating:</label>
-      <select name="rating" id="rating">
-        <option value="0" <%= game.rating === 0 ? "selected" : "" %>>0</option>
-        <option value="1" <%= game.rating === 1 ? "selected" : "" %>>1</option>
-        <option value="2" <%= game.rating === 2 ? "selected" : "" %>>2</option>
-        <option value="3" <%= game.rating === 3 ? "selected" : "" %>>3</option>
-        <option value="4" <%= game.rating === 4 ? "selected" : "" %>>4</option>
-        <option value="5" <%= game.rating === 5 ? "selected" : "" %>>5</option>
-        <option value="6" <%= game.rating === 6 ? "selected" : "" %>>6</option>
-        <option value="7" <%= game.rating === 7 ? "selected" : "" %>>7</option>
-        <option value="8" <%= game.rating === 8 ? "selected" : "" %>>8</option>
-        <option value="9" <%= game.rating === 9 ? "selected" : "" %>>9</option>
-        <option value="10" <%= game.rating === 10 ? "selected" : "" %>>10</option>
-      </select>
-
-      <label for="review">Review:</label>
-      <input
+    <h3 class="text-white pt-5">Editing <%= game.title %></h3>
+      <form
+      action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>?_method=PUT"
+      method="post"
+      class="d-flex flex-column align-items-center"
+    >
+      <div class="row pt-3">
+        <div class="col-auto">
+          <label for="title"  class="col-sm col-form-label">Title:</label>
+          <input type="text" name="title" value="<%= game.title %>" class="form-control"/>
+        </div>
+        <div class="col-auto">
+          <label for="rating"  class="col-sm col-form-label">Rating:</label>
+            <select name="rating" id="rating" class="form-select text-white">
+              <option value="0" <%= game.rating === 0 ? "selected" : "" %>>0</option>
+              <option value="1" <%= game.rating === 1 ? "selected" : "" %>>1</option>
+              <option value="2" <%= game.rating === 2 ? "selected" : "" %>>2</option>
+              <option value="3" <%= game.rating === 3 ? "selected" : "" %>>3</option>
+              <option value="4" <%= game.rating === 4 ? "selected" : "" %>>4</option>
+              <option value="5" <%= game.rating === 5 ? "selected" : "" %>>5</option>
+              <option value="6" <%= game.rating === 6 ? "selected" : "" %>>6</option>
+              <option value="7" <%= game.rating === 7 ? "selected" : "" %>>7</option>
+              <option value="8" <%= game.rating === 8 ? "selected" : "" %>>8</option>
+              <option value="9" <%= game.rating === 9 ? "selected" : "" %>>9</option>
+              <option value="10" <%= game.rating === 10 ? "selected" : "" %>>10</option>
+            </select>
+      </div>
+      </div>
+      <div class="pt-3 col-md-5">
+      <label for="review"  class="col-sm col-form-label">Review:</label>
+      <textarea
         type="text"
         name="review"
         id="review"
         maxlength="250"
-        value="<%= game.review %>"
-      />
-
-      <button type="submit">Update Game</button>
+        class="form-control text-white"
+        rows="6"
+      ><%= game.review %></textarea>
+        </div>
+      <button type="submit" class="btn btn-outline-primary mt-3">Update Game</button>
     </form>
+    <a href="/users/<%= user._id %>/lists/<%= list._id %>">
+      <button class="btn btn-outline-danger mt-3">Cancel</button>
+    </a>
   </body>
 </html>

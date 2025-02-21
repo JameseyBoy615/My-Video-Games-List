@@ -4,41 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
     <title><%= list.title %></title>
   </head>
-  <body>
+  <body class="text-white">
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= list.title %></h1>
-    <h2><%= list.description %></h2>
-    <h3><a href="/users/<%= user._id %>/lists/<%= list._id %>/addGame">Add a Game</a></h3>
-    <ul>
-      <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
-        <li><%= game.title %>
-            <br>
-            <%= game.rating %> / 10
-            <br>
-            <%= game.review %>
-            <br>
-            <a href="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/edit">Edit Game</a>
-            <form action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>?_method=DELETE" method="post">
-              <button type="submit" class="btn btn-outline-danger btn-sm">Remove game from list</button>
-            </form>
+    <h1 class="text-center pt-5"><%= list.title %></h1>
+
+    <p class="text-center"><%= list.description %></p>
+
+    <div class="dropdown d-flex justify-content-end me-5 mb-5">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Options
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a
+            class="dropdown-item text-white"
+            href="/users/<%= user._id %>/lists/<%= list._id %>/edit"
+            >Edit List Details</a
+          >
         </li>
-      </a>
+        <li>
+          <a
+            class="dropdown-item text-white"
+            href="/users/<%= user._id %>/lists/<%= list._id %>/addGame"
+            >Add Game to List</a
+          >
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <form
+            action="/users/<%= user._id %>/lists/<%= list._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="dropdown-item text-white delete">
+              Delete List
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="list-unstyled d-flex justify-content-evenly flex-wrap">
+      <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
+      <li class="">
+        <div class="card text-white border-white m-5" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p class="card-text"><%= game.rating %> / 10</p>
+            <p class="card-text"><%= game.review %></p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary btn-sm dropdown-toggle d-flex justify-content-end"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-list text-white"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                  />
+                </svg>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-sm">
+                <li>
+                  <a
+                    class="dropdown-item text-dark text-white"
+                    href="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>/edit"
+                  >
+                    Edit
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <form
+                    action="/users/<%= user._id %>/lists/<%= list._id %>/<%= game._id %>?_method=DELETE"
+                    method="post"
+                  >
+                    <button
+                      type="submit"
+                      class="dropdown-item text-white delete"
+                    >
+                      Remove game from list
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
       <% }) %> <% } else { %>
       <p>No games were added yet</p>
       <% } %>
     </ul>
-
-
-    <a href="/users/<%= user._id %>/lists/<%= list._id %>/edit">
-      <button class="btn btn-outline-warning btn-sm">Edit List Details</button>
-    </a>
-
-    <form
-      action="/users/<%= user._id %>/lists/<%= list._id %>?_method=DELETE"
-      method="POST"
-    >
-      <button type="submit" class="btn btn-primary">Delete list</button>
   </body>
 </html>

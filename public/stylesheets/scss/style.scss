@@ -1,3 +1,20 @@
 $body-bg: #16191c;
 
+form,
+input,
+label,
+p {
+  color: white !important;
+}
+
+$input-placeholder-color: white;
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #2b3035;
+}
+
+.dropdown-menu .dropdown-item.delete:hover {
+  background-color: #dc3545;
+}
+
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";

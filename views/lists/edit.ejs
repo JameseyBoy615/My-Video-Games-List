@@ -6,20 +6,40 @@
     <link rel="stylesheet" href="/stylesheets/scss/style.css" />
     <title>Editing <%= list.title %></title>
   </head>
-  <body>
+  <body class="text-white text-center">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Editing List: <%= list.title %></h1>
+    <h3 class="text-center mt-5">Editing List: <%= list.title %></h3>
     <form
-      action="/users/<%= user._id %>/lists/<%= list._id %>?_method=PUT"
+      action="/users/<%= user._id %>/lists/<%= list._id %>/?_method=PUT"
       method="post"
+      class="d-flex flex-column align-items-center"
     >
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" value="<%= list.title %>" />
-
-      <label for="description">Description:</label>
-      <input type="text" name="description" value="<%= list. description %>" />
-
-      <button type="submit">Update List</button>
+      <div class="col-md-5">
+        <label for="title" class="col-sm col-form-label">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="<%= list.title %>"
+          class="form-control"
+        />
+      </div>
+      <div class="pt-3 col-md-5">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          name="description"
+          class="form-control text-white"
+        >
+<%= list.description %></textarea
+        >
+      </div>
+      <button type="submit" class="btn btn-outline-primary my-3">
+        Update List
+      </button>
     </form>
+    <a href="/users/<%= user._id %>/lists/<%= list.id %>">
+      <button class="btn btn-outline-danger">Cancel</button>
+    </a>
   </body>
 </html>
