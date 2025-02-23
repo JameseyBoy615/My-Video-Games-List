@@ -20,9 +20,15 @@
     >
 
     <ul class="list-unstyled d-flex justify-content-evenly flex-wrap">
-      <% if (list.games.length > 0) { %> <% list.games.forEach((game) => { %>
+      <% if (list.games.length > 0) { %> <% list.games.forEach((game, index) =>
+      { %>
       <li class="">
         <div class="card text-white border-white m-5" style="width: 18rem">
+          <img
+            src="https://images.igdb.com/igdb/image/upload/t_cover_big/<%= covers[index] %>.jpg"
+            class="card-img-top"
+            alt="<%= game.title %>'s Cover"
+          />
           <div class="card-body">
             <h5 class="card-title"><%= game.title %></h5>
             <p class="card-text"><%= game.rating %> / 10</p>
@@ -31,7 +37,7 @@
         </div>
       </li>
       <% }) %> <% } else { %>
-      <p>No games were added yet</p>
+      <p class="mt-3">No games were added yet</p>
       <% } %>
     </ul>
   </body>

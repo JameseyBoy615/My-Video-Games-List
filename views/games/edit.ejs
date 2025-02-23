@@ -16,11 +16,11 @@
     >
       <div class="row pt-3">
         <div class="col-auto">
-          <label for="title"  class="col-sm col-form-label">Title:</label>
+          <label for="title"  class="col-sm col-form-label">Title (must enter exact title)</label>
           <input type="text" name="title" value="<%= game.title %>" class="form-control"/>
         </div>
         <div class="col-auto">
-          <label for="rating"  class="col-sm col-form-label">Rating:</label>
+          <label for="rating"  class="col-sm col-form-label">Rating</label>
             <select name="rating" id="rating" class="form-select text-white">
               <option value="0" <%= game.rating === 0 ? "selected" : "" %>>0</option>
               <option value="1" <%= game.rating === 1 ? "selected" : "" %>>1</option>
@@ -37,7 +37,7 @@
       </div>
       </div>
       <div class="pt-3 col-md-5">
-      <label for="review"  class="col-sm col-form-label">Review:</label>
+      <label for="review"  class="col-sm col-form-label">Review</label>
       <textarea
         type="text"
         name="review"

@@ -217,9 +217,27 @@ router.get("/:listId", async (req, res) => {
 
     const list = currentUser.lists.id(req.params.listId);
 
+    const covers = [];
+
+    for (let game of list.games) {
+      const request = await fetch("https://api.igdb.com/v4/games", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Client-ID": process.env.Client_ID,
+          Authorization: `Bearer ${process.env.Access_token}`,
+        },
+        body: `fields cover.image_id; limit 1; search "${game.title}";`,
+      });
+      const response = await request.json();
+      const cover = response[0].cover.image_id;
+      covers.push(cover);
+    }
+
     res.render("lists/show.ejs", {
       list: list,
       game: list.games,
+      covers: covers,
     });
   } catch (error) {
     console.log(error);
