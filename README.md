@@ -10,6 +10,10 @@
 
 Users can create an account where they can then create custom created lists that they can add video games that they hae played to said lists.
 
+## Kown Issues
+
+- Entering a incorrect game title to your list causes the list to become unavialable to view
+
 ## Table of Contents
 
 - [Technologies Used](#technologiesused)
@@ -55,7 +59,7 @@ Please see trello planning to view wireframes
 
 ## <a name="design"></a>Design
 
-- Descrition of what inspired your design. Ex: Design elements implemented using HTML5 and CSS3.
+- Bootstrap designs such as the nav bar, cards, and button options.
 
 ## ERD Images & DB Structure
 
@@ -66,7 +70,7 @@ Please see trello planning to view wireframes
 #### List of Future Features
 
 - Include most recent reviews created by users on homepage
-- Display upcoming releases for games
+- Display upcoming releases for games on homepage
 - Give users the ability to customize profile
 - Give users the ability to click on game titles to direct them to a detailed page about that game
 - Users can change the theme.
