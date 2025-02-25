@@ -43,11 +43,11 @@ Users can create an account where they can then create custom created lists that
 
 ## Features
 
-Users can create an unique account
-Users can create custom list such as "My top 5", "Most Anticipated", etc.
-Users can add video games to that list and provide a rating and review/ description about thier selection
-Users can edit/ remove thier lists and games from those lists
-Users can view other users lists through the "explore our communnity" tab
+- Users can create an unique account
+- Users can create custom list such as "My top 5", "Most - Anticipated", etc.
+- Users can add video games to that list and provide a rating and review/ description about thier selection
+- Users can edit/ remove thier lists and games from those lists
+- Users can view other users lists through the "explore our communnity" tab
 
 ## Wireframe Images
 
