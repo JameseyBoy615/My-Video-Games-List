@@ -78,7 +78,7 @@ Please see trello planning to view wireframes
 
 ## <a name="deployment"></a>Deployed Link
 
-N/a
+[MyVideoGameLists](https://my-video-game-lists-6d3649893b32.herokuapp.com/) - Deployed link
 
 - You can view the repository:
   [Github.com](https://github.com/JameseyBoy615/My-Video-Games-List)
@@ -91,4 +91,3 @@ I build applications and mini projects tied to my various interests. I look for 
 ## Special Mention/s
 
 - Swapnil Codes - [Youtube](https://www.youtube.com/@swapnilcodes) - Sign in/ Sign up page css inpiration. Learned bootstrap fundamentals though thier videos.
-
